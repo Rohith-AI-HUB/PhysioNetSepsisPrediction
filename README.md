@@ -183,21 +183,21 @@ lr = LogisticRegression(
 **Classification Report**:
 ```
               precision  recall  f1-score  support
-    0 (No)       0.96     0.73      0.83     7482
-    1 (Yes)      0.15     0.64      0.25      586
+    0 (No)       0.96     0.72     0.83     7482
+    1 (Yes)      0.15     0.64     0.25      586
     
     accuracy                         0.72     8068
 ```
 
 **Key Metrics**:
-- **ROC-AUC**: 0.730 (Good discrimination ability)
+- **ROC-AUC**: 0.733 (Good discrimination ability)
 - **Recall for Sepsis**: 64% (catches 64% of sepsis cases)
 - **Precision for Sepsis**: 15% (many false alarms)
 
 **Confusion Matrix**:
 ```
-[[5429  2053]    True Negatives: 5429, False Positives: 2053
- [ 211   375]]   False Negatives: 211, True Positives: 375
+[[5406  2076]    True Negatives: 5406, False Positives: 2076
+ [ 210   376]]   False Negatives: 210, True Positives: 376
 ```
 
 **Interpretation**:
@@ -227,8 +227,8 @@ rf_model = RandomForestClassifier(
 **Classification Report**:
 ```
               precision  recall  f1-score  support
-    0 (No)       0.93     1.00      0.96     7482
-    1 (Yes)      0.75     0.02      0.03      586
+    0 (No)       0.93     1.00     0.96     7482
+    1 (Yes)      0.75     0.02     0.03      586
     
     accuracy                         0.93     8068
 ```
@@ -254,7 +254,7 @@ rf_model = RandomForestClassifier(
 
 | Metric | Logistic Regression | Random Forest |
 |--------|---------------------|---------------|
-| **ROC-AUC** | 0.730 | 0.816 |
+| **ROC-AUC** | 0.733 | 0.816 |
 | **Accuracy** | 72% | 93% |
 | **Sepsis Recall** | 64% | 2% |
 | **Sepsis Precision** | 15% | 75% |
@@ -310,9 +310,9 @@ def risk_level(p):
 ```
 
 **Distribution** (Logistic Regression):
-- Low Risk: 2,409 patients (30%)
-- Medium Risk: 4,301 patients (53%)
-- High Risk: 1,358 patients (17%)
+- Medium Risk: 4,292 patients
+- Low Risk: 2,410 patients
+- High Risk: 1,366 patients
 
 **Clinical Use**:
 - **High Risk**: Immediate intervention, close monitoring
@@ -347,8 +347,8 @@ Hour  HR   O2Sat  Temp   SBP   MAP   DBP   Resp  Platelets  Age
 - ↓ Platelets: 250 → 210 (consumption)
 
 **Model Prediction**:
-- **Logistic Regression**: 75.3% probability → **High Risk**
-- **Random Forest**: 20% probability → **Low Risk**
+- **Logistic Regression**: 77.9% probability → **High Risk**
+- **Random Forest**: 20.0% probability → **Low Risk**
 
 **Clinical Decision**: Follow Logistic Regression → Start sepsis protocol
 
